@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse All Recipes - Delicious Recipes Blog">
+    <meta name="keywords" content="all recipes, cooking, food, blog">
+    <title>All Recipes - Delicious Recipes Blog</title>
+    <link rel="stylesheet" href="css/output.css">
+</head>
+<body>
+    <header>
+        <h1 id="site-title">Delicious Recipes Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="categories.html" id="nav-categories">Categories</a></li>
+                <li><a href="recipes.html" id="nav-recipes">Recipes</a></li>
+                <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                <li>
+                    <select id="language-selector" onchange="changeLang()">
+                        <option value="en" selected>English</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </li>
+                <li>
+                    <button id="theme-toggle"
+                            class="bg-gray-200 dark:bg-gray-700 rounded-full p-1 cursor-pointer transition-colors duration-300">
+                        <img id="theme-toggle-dark-icon" src="icons/moon-icon.svg" alt="Dark Theme"
+                             class="w-6 h-6 text-gray-800 dark:text-yellow-300 hidden">
+                        <img id="theme-toggle-light-icon" src="icons/sun-icon.svg" alt="Light Theme"
+                             class="w-6 h-6 text-gray-800 dark:text-yellow-300 hidden">
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 grid grid-cols-1 gap-6">
+        <h2 id="all-recipes-title" class="text-2xl font-bold mb-6 text-red-500 dark:text-red-400 md:col-span-2 lg:col-span-3">All Recipes</h2>
+        <div id="all-recipes" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Recipes will be loaded by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p id="copyright">&copy; 2025 Delicious Recipes Blog. All rights reserved.</p>
+        <p><a href="contact.html" id="contact-link">Contact Us</a> | <a href="#" id="privacy-link">Privacy Policy</a></p>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/recipes.js"></script>
+    <script>
+        // Load all recipes when the page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllRecipes();
+        });
+
+        // Load all recipes
+        function loadAllRecipes() {
+            changeLanguage();
+            const recipesContainer = document.getElementById('all-recipes');
+            const currentLanguage = document.getElementById('language-selector').value || 'en';
+
+            // Clear the container
+            recipesContainer.innerHTML = '';
+
+            // Get all recipes
+            const allRecipes = getAllRecipes();
+
+            allRecipes.forEach((recipe, index) => {
+                const recipeElement = document.createElement('article');
+                const currentLanguage = document.getElementById('language-selector').value || 'en';
+                const buttonText = currentLanguage === 'fr' ? 'Voir la Recette' : 'View Recipe';
+                recipeElement.className = 'bg-white p-6 rounded-lg shadow-md mb-6 dark:bg-gray-800';
+                recipeElement.innerHTML = `
+            <h3 id="recipe-${index + 1}-name" class="text-red-500 text-xl font-bold mb-4 dark:text-red-400">
+                ${getRecipeName(recipe, currentLanguage)}
+            </h3>
+            <img src="${recipe.image}" alt="${getRecipeName(recipe, currentLanguage)}" width="300"
+                 id="recipe-${index + 1}-image" class="block mx-auto rounded-lg shadow-md my-4">
+            <p id="recipe-${index + 1}-description" class="mb-4">
+                ${getRecipeDescription(recipe, currentLanguage)}
+            </p>
+            <a href="recipe_detail.html?recipe=${recipe.id}" id="view-recipe-${index + 1}"
+               class="inline-block bg-red-500 text-white no-underline px-4 py-2 rounded transition-colors duration-300 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700">
+                ${buttonText}
+            </a>
+        `;
+                recipesContainer.appendChild(recipeElement);
+            });
+        }
+
+        // Reload recipes when language is changed
+        function changeLang() {
+            loadAllRecipes();
+        }
+    </script>
+</body>
+</html>

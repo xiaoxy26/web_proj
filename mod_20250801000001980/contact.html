@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Us - Delicious Recipes Blog">
+    <meta name="keywords" content="contact, recipes, cooking, food, blog">
+    <title>Contact Us - Delicious Recipes Blog</title>
+    <link rel="stylesheet" href="css/output.css">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+<header class="bg-red-500 text-white shadow-md dark:bg-red-700">
+    <h1 id="site-title" class="text-center py-4 text-3xl font-bold md:text-4xl">Delicious Recipes Blog</h1>
+    <nav>
+        <ul class="flex flex-wrap justify-center list-none py-2">
+            <li><a href="index.html" id="nav-home"
+                   class="text-white font-bold px-3 py-1 rounded transition-colors duration-300 hover:bg-red-400 dark:hover:bg-red-600">Home</a>
+            </li>
+            <li><a href="categories.html" id="nav-categories"
+                   class="text-white font-bold px-3 py-1 rounded transition-colors duration-300 hover:bg-red-400 dark:hover:bg-red-600">Categories</a>
+            </li>
+            <li><a href="recipes.html" id="nav-recipes"
+                   class="text-white font-bold px-3 py-1 rounded transition-colors duration-300 hover:bg-red-400 dark:hover:bg-red-600">Recipes</a>
+            </li>
+            <li><a href="contact.html" id="nav-contact"
+                   class="text-white font-bold px-3 py-1 rounded transition-colors duration-300 hover:bg-red-400 dark:hover:bg-red-600">Contact</a>
+            </li>
+            <li>
+                <select id="language-selector"
+                        class="px-2 py-1 rounded text-gray-800 font-bold dark:bg-gray-700 dark:text-white"
+                        onchange="changeLanguage()">
+                    <option value="en" selected>English</option>
+                    <option value="fr">Français</option>
+                </select>
+            </li>
+            <li>
+                <button id="theme-toggle"
+                        class="bg-gray-200 dark:bg-gray-700 rounded-full p-1 cursor-pointer transition-colors duration-300">
+                    <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-gray-800 dark:text-yellow-300 hidden"
+                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-6 h-6 text-gray-800 dark:text-yellow-300 hidden"
+                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                              fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container mx-auto px-4 py-8 grid grid-cols-1">
+    <h2 id="contact-title" class="text-2xl font-bold mb-6 text-red-500 dark:text-red-400 md:col-span-2 lg:col-span-3">Contact Us</h2>
+
+    <section class="bg-white p-6 rounded-lg shadow-md mb-6 dark:bg-gray-800">
+        <h3 id="contact-form-title" class="text-red-500 text-xl font-bold mb-4 dark:text-red-400">Send us a message</h3>
+        <form id="contact-form" onsubmit="validateForm(event)" class="dark:bg-gray-800">
+            <div class="form-group mb-4">
+                <label for="name" id="name-label" class="block mb-2 dark:text-white">Name:</label>
+                <input type="text" id="name" name="name" required
+                       class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <span class="error text-red-500 text-sm" id="name-error"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="email" id="email-label" class="block mb-2 dark:text-white">Email:</label>
+                <input type="email" id="email" name="email" required
+                       class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <span class="error text-red-500 text-sm" id="email-error"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="subject" id="subject-label" class="block mb-2 dark:text-white">Subject:</label>
+                <input type="text" id="subject" name="subject" required
+                       class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <span class="error text-red-500 text-sm" id="subject-error"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="message" id="message-label" class="block mb-2 dark:text-white">Message:</label>
+                <textarea id="message" name="message" rows="5" required
+                          class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                <span class="error text-red-500 text-sm" id="message-error"></span>
+            </div>
+
+            <button type="submit" id="submit-button"
+                    class="bg-red-500 text-white border-none px-6 py-3 rounded cursor-pointer text-base transition-colors duration-300 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700">
+                Send Message
+            </button>
+            <p class="success text-green-500 mt-2" id="success-message"></p>
+        </form>
+    </section>
+
+    <section class="bg-white p-6 rounded-lg shadow-md mb-6 dark:bg-gray-800">
+        <h3 id="contact-info-title" class="text-red-500 text-xl font-bold mb-4 dark:text-red-400">Contact Information</h3>
+        <table id="contact-table" class="w-full border-collapse dark:text-white">
+            <tr class="bg-gray-100 dark:bg-gray-700">
+                <th id="contact-method" class="border border-gray-300 px-4 py-2 dark:border-gray-600">Contact Method</th>
+                <th id="contact-details" class="border border-gray-300 px-4 py-2 dark:border-gray-600">Details</th>
+            </tr>
+            <tr class="border-b border-gray-300 dark:border-gray-600">
+                <td id="email-table" class="border border-gray-300 px-4 py-2 dark:border-gray-600">Email</td>
+                <td class="border border-gray-300 px-4 py-2 dark:border-gray-600">
+                    <a href="mailto:info@deliciousrecipes.com" id="email-link"
+                       class="text-red-500 no-underline transition-colors duration-300 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300">
+                        info@deliciousrecipes.com
+                    </a>
+                </td>
+            </tr>
+            <tr class="border-b border-gray-300 dark:border-gray-600">
+                <td id="phone-table" class="border border-gray-300 px-4 py-2 dark:border-gray-600">Phone</td>
+                <td id="phone-number" class="border border-gray-300 px-4 py-2 dark:border-gray-600">+1 (555) 123-4567</td>
+            </tr>
+            <tr class="border-b border-gray-300 dark:border-gray-600">
+                <td id="address-table" class="border border-gray-300 px-4 py-2 dark:border-gray-600">Address</td>
+                <td id="address" class="border border-gray-300 px-4 py-2 dark:border-gray-600">123 Culinary Street, Foodville, FC 12345</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+        <h3 id="social-title" class="text-red-500 text-xl font-bold mb-4 dark:text-red-400">Follow Us</h3>
+        <ul class="list-disc pl-5 dark:text-white">
+            <li class="mb-2">
+                <a href="https://www.youtube.com/cookingvideos" target="_blank" id="youtube-link"
+                   class="text-red-500 no-underline transition-colors duration-300 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300">
+                    YouTube Cooking Channel
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" id="facebook-link"
+                   class="text-red-500 no-underline transition-colors duration-300 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300">
+                    Facebook
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" id="instagram-link"
+                   class="text-red-500 no-underline transition-colors duration-300 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300">
+                    Instagram
+                </a>
+            </li>
+            <li>
+                <a href="#" id="twitter-link"
+                   class="text-red-500 no-underline transition-colors duration-300 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300">
+                    Twitter
+                </a>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer class="bg-gray-800 text-white text-center p-8 mt-8 dark:bg-gray-900">
+    <p id="copyright" class="mb-2">&copy; 2025 Delicious Recipes Blog. All rights reserved.</p>
+    <p id="contact-info" class="mb-2">
+        Contact us at:
+        <a href="mailto:info@deliciousrecipes.com" id="email-link-footer"
+           class="text-red-400 no-underline hover:underline">
+            info@deliciousrecipes.com
+        </a>
+    </p>
+    <p>
+        <a href="https://www.youtube.com/cookingvideos" target="_blank" id="external-link"
+           class="text-red-400 no-underline hover:underline">
+            External Cooking Videos
+        </a>
+    </p>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/language.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

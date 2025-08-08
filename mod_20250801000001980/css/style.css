@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif;
+  @apply bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200;
+}
+
+/* Header Styles */
+header {
+  @apply bg-red-500 text-white shadow-md dark:bg-red-700;
+}
+
+header h1 {
+  @apply text-center py-4 text-3xl font-bold md:text-4xl;
+}
+
+nav ul {
+  @apply flex flex-wrap justify-center list-none py-2;
+}
+
+nav ul li {
+  @apply mx-2 my-1;
+}
+
+nav ul li a {
+  @apply text-white font-bold px-3 py-1 rounded transition-colors duration-300 hover:bg-red-400 dark:hover:bg-red-600;
+}
+
+/* Language Selector Styles */
+#language-selector {
+  @apply px-2 py-1 rounded text-gray-800 font-bold dark:bg-gray-700 dark:text-white;
+}
+
+/* Main Content Area */
+main {
+  @apply container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-6;
+}
+
+main h2 {
+  @apply text-red-500 text-2xl font-bold mb-6 dark:text-red-400;
+}
+
+/* Section Styles */
+section {
+  @apply bg-white p-6 rounded-lg shadow-md mb-6 dark:bg-gray-800;
+}
+
+section h3 {
+  @apply text-red-500 text-xl font-bold mb-4 dark:text-red-400;
+}
+
+/* Article Styles */
+article {
+  @apply bg-white p-6 rounded-lg shadow-md mb-6 dark:bg-gray-800;
+}
+
+article h3 {
+  @apply text-red-500 text-xl font-bold mb-4 dark:text-red-400;
+}
+
+article img {
+  @apply block mx-auto rounded-lg shadow-md my-4;
+}
+
+article a {
+  @apply inline-block bg-red-500 text-white no-underline px-4 py-2 rounded transition-colors duration-300 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700;
+}
+
+/* Sidebar Styles */
+aside {
+  @apply bg-white p-6 rounded-lg shadow-md md:col-span-1 dark:bg-gray-800;
+}
+
+aside h3 {
+  @apply text-red-500 text-xl font-bold mb-4 dark:text-red-400;
+}
+
+aside ul {
+  @apply list-none;
+}
+
+aside ul li {
+  @apply mb-2;
+}
+
+aside ul li a {
+  @apply text-red-500 no-underline transition-colors duration-300 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300;
+}
+
+/* Form Styles */
+.form-group {
+  @apply mb-4;
+}
+
+.form-group label {
+  @apply block mb-2 font-bold;
+}
+
+.form-group input,
+.form-group textarea {
+  @apply w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+}
+
+button {
+  @apply bg-red-500 text-white border-none px-6 py-3 rounded cursor-pointer text-base transition-colors duration-300 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700;
+}
+
+.error {
+  @apply text-red-500 text-sm block mt-1;
+}
+
+.success {
+  @apply text-green-500 font-bold mt-4;
+}
+
+/* Table Styles */
+table {
+  @apply w-full border-collapse my-4;
+}
+
+table th,
+table td {
+  @apply px-4 py-2 text-left border-b border-gray-300 dark:border-gray-600;
+}
+
+table th {
+  @apply bg-red-500 text-white dark:bg-red-700;
+}
+
+table tr:nth-child(even) {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+/* Footer Styles */
+footer {
+  @apply bg-gray-800 text-white text-center p-8 mt-8 dark:bg-gray-900;
+}
+
+footer p {
+  @apply mb-2;
+}
+
+footer a {
+  @apply text-red-400 no-underline hover:underline;
+}
+
+/* Recipe Page Specific Styles */
+#recipe-image {
+  @apply w-full max-w-md h-auto;
+}
+
+#animated-image {
+  @apply float-right ml-4 mb-4 max-w-[200px] h-auto;
+}
+
+iframe {
+  @apply w-full max-w-[560px] h-[315px] my-4;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  @apply bg-gray-200 dark:bg-gray-700 rounded-full p-1 cursor-pointer transition-colors duration-300;
+}
+
+.theme-toggle-icon {
+  @apply w-6 h-6 text-gray-800 dark:text-yellow-300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    @apply text-2xl;
+  }
+  nav ul {
+    @apply flex-col items-center;
+  }
+  nav ul li {
+    @apply mx-0 my-1;
+  }
+  main {
+    @apply grid-cols-1 gap-4 py-4 px-2;
+  }
+  #animated-image {
+    @apply float-none block mx-auto my-4;
+  }
+  iframe {
+    @apply h-[200px];
+  }
+}
+@media (max-width: 480px) {
+  header h1 {
+    @apply text-xl;
+  }
+  main {
+    @apply py-2;
+  }
+  section, article, aside {
+    @apply p-4;
+  }
+  iframe {
+    @apply h-[150px];
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

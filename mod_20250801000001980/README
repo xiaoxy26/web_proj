@@ -1,0 +1,54 @@
+Team names and roles
+
+Project description
+This site named Delicious Recipes Blog, A fully functional multilingual recipe blog website with responsive
+ design and SEO optimization.
+
+Page Structure:
+1. Home Page (index.html)
+   - Welcome message and website introduction
+   - Featured recipes display
+   - Category navigation
+2. Categories Page (categories.html)
+   - Browse recipes by category (Desserts, Main Dishes, Appetizers, Salads, Drinks)
+   - Each category includes related recipe thumbnails
+3. Recipes Page (recipes.html)
+   - Complete list of all recipes
+   - Each recipe has an image and brief description
+4. Contact Page (contact.html)
+   - Contact form (with JavaScript validation)
+   - Contact information table
+   - Social media links
+5. Recipe Detail Page (recipes/recipe_detail.html)
+   - Unified recipe detail page that dynamically loads different recipes via URL parameters
+   - Each recipe page includes:
+     - Recipe name and image
+     - Description
+     - Ingredients list
+     - Preparation steps
+     - Embedded cooking video
+     - Animated image
+
+Features list
+- Multilingual support: English and French, dynamically switch languages via the language selector at the top of the page
+- Light/Dark theme: Supports light and dark themes, switch themes via the theme toggle button at the top of the page.
+ Automatically sets initial theme based on system preferences, and user-selected themes are saved in local storage
+- Responsive design: Adapts to desktop, tablet and mobile devices
+- SEO & Accessibility optimization: Uses meta tags, ARIA, and semantic HTML structure
+- Modern CSS architecture:
+  - Uses Tailwind CSS framework
+  - Uses SASS for style organization
+  - CSS3 feature support
+- JavaScript features:
+  - Language switching functionality
+  - Form validation
+  - Dynamic recipe loading
+  - Theme switching
+- HTML elements:
+  - Uses <article> to display each recipe
+  - Uses <section> to organize content and categories
+  - Uses <table> to display contact information
+  - Includes ordered and unordered lists
+  - Embedded cooking videos
+  - Includes thumbnails and animated images
+  - Includes email links and external links

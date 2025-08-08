@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delicious Recipes Blog">
+    <meta name="keywords" content="recipes, cooking, food, blog">
+    <title>Recipe Detail - Delicious Recipes Blog</title>
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+<body>
+<header>
+    <h1 id="site-title">Delicious Recipes Blog</h1>
+    <nav>
+        <ul>
+            <li><a href="./index.html" id="nav-home">Home</a></li>
+            <li><a href="./categories.html" id="nav-categories">Categories</a></li>
+            <li><a href="./recipes.html" id="nav-recipes">Recipes</a></li>
+            <li><a href="./contact.html" id="nav-contact">Contact</a></li>
+            <li>
+                <select id="language-selector" onchange="changeLanguage()">
+                    <option value="en" selected>English</option>
+                    <option value="fr">Français</option>
+                </select>
+            </li>
+            <li>
+                <button id="theme-toggle"
+                        class="bg-gray-200 dark:bg-gray-700 rounded-full p-1 cursor-pointer transition-colors duration-300">
+                    <img id="theme-toggle-dark-icon" src="icons/moon-icon.svg" alt="Dark Theme"
+                         class="w-6 h-6 text-gray-800 dark:text-yellow-300 hidden">
+                    <img id="theme-toggle-light-icon" src="icons/sun-icon.svg" alt="Light Theme"
+                         class="w-6 h-6 text-gray-800 dark:text-yellow-300 hidden">
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="grid grid-cols-1">
+    <article  class="col-span-full grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+        <section id="description" class="mb-8 p-6">
+            <h2 id="recipe-title" class="text-3xl font-bold mb-6 text-center">Recipe Title</h2>
+
+            <img id="recipe-image" alt="Recipe Image" class="w-full max-w-4xl mx-auto rounded-lg shadow-md mb-8">
+
+            <h3 id="description-title" class="text-2xl font-semibold mb-3">Description</h3>
+            <p id="recipe-description" class="text-lg">Recipe description</p>
+        </section>
+
+        <section id="ingredients" class="mb-8 p-6">
+            <h3 id="ingredients-title" class="text-2xl font-semibold mb-3">Ingredients</h3>
+            <ul id="ingredients-list" class="list-disc pl-5 space-y-2">
+                <!-- Ingredients will be populated by JavaScript -->
+            </ul>
+        </section>
+
+        <section id="instructions" class="mb-8 p-6">
+            <h3 id="instructions-title" class="text-2xl font-semibold mb-3">Instructions</h3>
+            <ol id="instructions-list" class="list-decimal pl-5 space-y-2">
+                <!-- Instructions will be populated by JavaScript -->
+            </ol>
+        </section>
+
+        <section id="video-section" class="mb-8 p-6">
+            <h3 id="video-title" class="text-2xl font-semibold mb-3">Cooking Video</h3>
+            <p id="video-description" class="mb-4">Video description</p>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe id="recipe-video" width="560" height="315"
+                        title="Recipe Video" allowfullscreen class="w-full h-full"></iframe>
+            </div>
+        </section>
+    </article>
+</main>
+
+
+<footer>
+    <p id="copyright">&copy; 2025 Delicious Recipes Blog. All rights reserved.</p>
+    <p id="contact-info">Contact us at: <a href="mailto:info@deliciousrecipes.com" id="email-link">info@deliciousrecipes.com</a>
+    </p>
+    <p><a href="https://www.youtube.com/cookingvideos" target="_blank" id="external-link">External Cooking Videos</a>
+    </p>
+</footer>
+<script src="js/theme.js"></script>
+<script src="./js/language.js"></script>
+<script src="./js/recipes.js"></script>
+<script src="./js/recipe_detail.js"></script>
+</body>
+</html>
